@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration & Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-group input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-group input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .toggle-btn {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .toggle-btn a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .toggle-btn a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div id="login-form">
+      <h2>Login</h2>
+      <form action="login.php" method="POST"></form>
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="login-password" required>
+        </div>
+        <div class="form-group">
+          <label for="login-county">County</label>
+          <select id="login-county" name="login-county" required>
+            <option value="">Select County</option>
+            <option value="Wajir">Wajir</option>
+            <option value="Garissa">Garissa</option>
+            <option value="Mandera">Mandera</option>
+            <option value="Isiolo">Isiolo</option>
+            <option value="Marsabit">Marsabit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Login"> 
+        </div>
+        <div class="toggle-btn">
+          <a href="#" onclick="toggleForms()">Don't have an account? Register</a>
+        </div>
+      </form>
+    </div>
+
+    <div id="register-form" style="display:none;">
+      <h2>Register</h2>
+      <form action="register.php" method="POST">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <input type="text" id="register-name" name="register-name" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" name="register-email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" name="register-password" required>
+        </div>
+        <div class="form-group">
+          <label for="register-confirm-password">Confirm Password</label>
+          <input type="password" id="register-confirm-password" name="register-confirm-password" required>
+        </div>
+        <div class="form-group">
+          <label for="register-county">County</label>
+          <select id="register-county" name="register-county" required>
+            <option value="">Select County</option>
+            <option value="Wajir">Wajir</option>
+            <option value="Garissa">Garissa</option>
+            <option value="Mandera">Mandera</option>
+            <option value="Isiolo">Isiolo</option>
+            <option value="Marsabit">Marsabit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Register">
+        </div>
+        <div class="toggle-btn">
+          <a href="#" onclick="toggleForms()">Already have an account? Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      var loginForm = document.getElementById('login-form');
+      var registerForm = document.getElementById('register-form');
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
